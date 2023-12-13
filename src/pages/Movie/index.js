@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import api from "../../services/api";
 
@@ -7,6 +7,9 @@ import "./movie.css";
 
 const Movie = () => {
   const { id } = useParams();
+
+  const navigate = useNavigate();
+
   const [movie, setMovie] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -24,7 +27,8 @@ const Movie = () => {
           setLoading(false);
         })
         .catch(() => {
-          console.log("ERROR");
+          navigate("/", { replace: true });
+          return;
         });
     }
 
@@ -33,7 +37,26 @@ const Movie = () => {
     return () => {
       console.log("componente desmontado");
     };
-  }, []);
+  }, [id, navigate]);
+
+  const saveMovie = () => {
+    const myList = localStorage.getItem("@primeflix");
+
+    let savedMovies = JSON.parse(myList) || [];
+
+    const hasMovie = savedMovies.some(
+      (savedMovie) => savedMovie.id === movie.id
+    );
+
+    if (hasMovie) {
+      alert("Esse filme ja esta na lista");
+      return;
+    }
+
+    savedMovies.push(movie);
+    localStorage.setItem("@primeflix", JSON.stringify(savedMovies));
+    alert("Filme salvo com sucesso!");
+  };
 
   if (loading) {
     return (
@@ -55,9 +78,15 @@ const Movie = () => {
       <strong>Avaliação: {movie.vote_average.toFixed(1)} / 10</strong>
 
       <div className="button-area">
-        <button>Salvar</button>
+        <button onClick={saveMovie}>Salvar</button>
         <button>
-          <a href="#">Trailer</a>
+          <a
+            href={`https://youtube.com/results?search_query=${movie.title} trailer`}
+            target="blank"
+            rel="external"
+          >
+            Trailer
+          </a>
         </button>
       </div>
     </div>
