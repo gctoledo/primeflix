@@ -1,0 +1,38 @@
+.my-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.my-list h1 {
+  margin-bottom: 14px;
+}
+
+.my-list span {
+  font-size: 18px;
+}
+
+.my-list ul {
+  width: 720px;
+}
+
+.my-list ul li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.my-list div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-list div a {
+  text-decoration: none;
+  color: #116feb;
+  margin-right: 14px;
+}
