@@ -8,7 +8,7 @@ O projeto foi realizado para praticar React JS, usando React-toastify para criar
 
 ### 🔨 Guia de instalação
 
-Para visualizar o projeto é necessário possuir o NodeJS instalado em sua máquina. Você pode fazer um clone do repositório e executar os seguinte comandos no terminal para visualizar o projeto:
+Para visualizar o projeto é necessário possuir o NodeJS instalado em sua máquina. Você pode fazer um clone do repositório e executar os seguintes comandos no terminal para visualizar o projeto:
 
 Passo 1:
 ```
@@ -20,7 +20,5 @@ npm start
 ```
 
 ## 📦 Tecnologias usadas:
-
-Coloque aqui as ferramentas que você usou para criar seu projeto, exemplo:
 
 * ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
